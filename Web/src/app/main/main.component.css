@@ -1,0 +1,43 @@
+#start {
+    height: 50vh;
+    background: #689F38;
+    margin-bottom: 3em;
+}
+
+#start>div>h1,p{
+    color: #F1F8E9;
+    text-align: center;
+}
+
+.main {
+    background: #F1F8E9;
+}
+
+.main>div,h1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+}
+
+
+.main>h1 {
+    margin: 1em 0;
+}
+
+mat-card {
+    width: 25em;
+    margin: 1em;
+    padding: 2em;
+}
+
+mat-card-actions {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+button {
+    background: #689F38;
+    color: #F1F8E9;
+}

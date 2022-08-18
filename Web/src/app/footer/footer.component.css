@@ -1,0 +1,14 @@
+h1,h2,h3,h4,a {
+    margin: 0;
+    color: #F1F8E9;
+}
+
+footer {
+    background: #33691E;
+    padding: 2em;
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+}
+
+
