@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour
     static public Transform f_for_arr;
     [SerializeField] private Transform fieldTransform;
     [SerializeField] private PlaneSpavner[] planeSpavners;
+    public AudioSource source;
     private List<PlaceController> _nodes = new List<PlaceController>();
     private List<enem_spavn> enem_spawn_list = new List<enem_spavn>();
     public GameObject ee;
@@ -37,13 +38,14 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         enemies.Add(enemy1);
         enemies.Add(enemy2);
         enemies.Add(enemy3);
         canvasTransform = _canvasTransform;
         f_for_arr = _f_for_arr;
         coins.text = "0";
-        CurrCoins = 80;
+        CurrCoins = Mode.money;
 
         GenerateGrid();
         GenetateEnem_sp();
@@ -60,12 +62,12 @@ public class GameManager : MonoBehaviour
         Frames += 1;
         CurrCoins += Frames % 100 == 0 ? 1 : 0;
         coins.text = CurrCoins.ToString();
-        Debug.Log((700 - Frames / 10));
-        if (700 - Frames / 10 >= -500)
+        Debug.Log((Mode.frfr - Frames / 10));
+        if (Mode.frfr - Frames / 10 >= -500)
         {
-            if ((550 - Frames / 10) > 5)
+            if ((Mode.frfr - Frames / 10) > 5)
             {
-                if (Frames % (700 - Frames / 10) == 0)
+                if (Frames % (Mode.frfr - Frames / 10) == 0)
                 {
                     var e = Instantiate(enemies[Random.Range(0, 3)], enem_spawn_list[Random.Range(0, 6)].transform.position, Quaternion.identity);
                     e.transform.SetParent(canvasTransform);
@@ -74,7 +76,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
-                if (Frames % 13 == 0)
+                if (Frames % 5 == 0)
                 {
                     var e = Instantiate(enemies[Random.Range(0, 3)], enem_spawn_list[Random.Range(0, 6)].transform.position, Quaternion.identity);
                     e.transform.SetParent(canvasTransform);

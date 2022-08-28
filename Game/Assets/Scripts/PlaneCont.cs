@@ -12,6 +12,7 @@ public class PlaneCont : MonoBehaviour, IDragHandler , IBeginDragHandler , IEndD
     [SerializeField] public Slider slid;
     [SerializeField] public Transform hh;
     static public Transform hhh;
+    public GameObject fff = null;
     [SerializeField] public Laser las;
     [SerializeField] public bullet bul;
     [SerializeField] public int hitpoint;

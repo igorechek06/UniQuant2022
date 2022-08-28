@@ -64,7 +64,7 @@ public class EnemController : MonoBehaviour
         {
             hp -= 2;
             go.gameObject.SetActive(true);
-            hb.value -= 1;
+            hb.value -= 2;
             if (hp <= 0)
             {
                 Destroy(this.gameObject);
@@ -77,8 +77,6 @@ public class EnemController : MonoBehaviour
 
         }
     }
-    public AudioSource source;
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         var plane = collision.GetComponent<PlaneCont>();
@@ -86,31 +84,21 @@ public class EnemController : MonoBehaviour
 
         if (plane != null)
         {
-            currSpeed = new Vector3(0, 0, 0);
             if (plane.IsStay)
             {
+                currSpeed = new Vector3(0, 0, 0);
                 plane.hitpoint -= 1;
                 plane.slid.value = plane.hitpoint;
                 plane.hh.gameObject.SetActive(true);
                 if (plane.hitpoint <= 0)
                 {
                     Destroy(plane.gameObject);
-                    PlaceController._plc.GetComponent<CanvasGroup>().blocksRaycasts = true;
+                    plane.fff.GetComponent<CanvasGroup>().blocksRaycasts = true;
                 }
             }
         }
 
     }
-
-    public void NormWidht()
-    {
-        var size = go.GetComponent<RectTransform>().sizeDelta;
-
-        size.y = 100;
-        go.GetComponent<RectTransform>().sizeDelta = size;
-
-    }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         currSpeed = defaultSpeed;

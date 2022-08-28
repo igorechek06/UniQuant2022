@@ -652,11 +652,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c66d59ef4eda92b478a59610c0ef4517, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1610,6 +1610,7 @@ MonoBehaviour:
   - {fileID: 1207774394}
   - {fileID: 652925640}
   - {fileID: 126717304}
+  source: {fileID: 0}
   ee: {fileID: 0}
   coins: {fileID: 1297998950}
 --- !u!4 &1957694214

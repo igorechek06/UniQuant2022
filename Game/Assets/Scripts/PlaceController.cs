@@ -8,7 +8,6 @@ public class PlaceController : MonoBehaviour , IDropHandler , IPointerEnterHandl
 {
     public Transform StayPoint;
     public PlaceController plc;
-    static public PlaceController _plc;
 
     public Color defaultColor;
     public Color pointedColor;
@@ -16,7 +15,6 @@ public class PlaceController : MonoBehaviour , IDropHandler , IPointerEnterHandl
     void Start()
     {
         GetComponent<Image>().color = defaultColor;
-        _plc = plc;
     }
 
     public void OnDrop(PointerEventData eventData)
@@ -29,6 +27,7 @@ public class PlaceController : MonoBehaviour , IDropHandler , IPointerEnterHandl
             return;
 
         plane.SetNewSpawnPoint(StayPoint);
+        plane.fff = this.gameObject;
         this.GetComponent<CanvasGroup>().blocksRaycasts = false;
 
         PlanePlaced?.Invoke(this, null);
